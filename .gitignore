@@ -1,0 +1,25 @@
+# Arquivos de configuração local
+local_settings.py
+
+# Arquivos de mídia (imagens, uploads de usuário, etc.)
+media/
+
+# Arquivos estáticos coletados
+staticfiles/
+
+# Banco de dados SQLite (se você estiver usando SQLite)
+*.sqlite3
+
+# Diretório virtualenv (se estiver usando)
+venv/
+
+# Arquivos de cache
+__pycache__/
+*.pyc
+
+# Arquivos de log
+*.log
+
+# Arquivos de configuração de IDEs específicos
+.idea/
+.vscode/
