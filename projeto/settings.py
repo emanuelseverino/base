@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +77,12 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'usuario.CustomUsuario'
+
+LOGIN_REDIRECT_URL = 'login'
+
+LOGOUT_REDIRECT_URL = 'login'
 
 try:
     from .local_settings import *
