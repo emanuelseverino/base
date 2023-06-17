@@ -1,10 +1,12 @@
 from django.urls import include, path
 from rest_framework import routers
-from perfil.api.viewsets import PerfilViewSet, Perfil2ViewSet
+from perfil.api.viewsets import PerfilViewSet, RedeSocialViewSet, EnderecoViewSet, LocalizacaoViewSet
 
 router = routers.DefaultRouter()
-router.register(r'', PerfilViewSet)
-router.register(r'meu', Perfil2ViewSet)
+router.register('', PerfilViewSet)
+router.register('redesocial', RedeSocialViewSet)
+router.register('endereco', EnderecoViewSet)
+router.register('localizacao', LocalizacaoViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

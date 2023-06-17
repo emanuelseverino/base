@@ -10,7 +10,8 @@ Usuario = get_user_model()
 class EnderecoSerializer(ModelSerializer):
     class Meta:
         model = Endereco
-        fields = ['tipo', 'cep', 'lugradouro', 'numero', 'bairro', 'cidade', 'estado', 'uf', 'pais']
+        # fields = '__all__'
+        fields = ['id', 'tipo', 'cep', 'lugradouro', 'numero', 'bairro', 'cidade', 'estado', 'uf', 'pais']
 
 
 class RedeSocialSerializer(ModelSerializer):

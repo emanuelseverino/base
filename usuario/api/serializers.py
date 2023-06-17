@@ -1,24 +1,26 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate, get_user_model
 
+Usuario = get_user_model()
+
 
 class CustomAuthTokenSerializer(serializers.Serializer):
     email = serializers.CharField(label="Email")
-    password = serializers.CharField(label="Password", style={'input_type': 'password'}, trim_whitespace=False)
+    senha = serializers.CharField(label="Senha", style={'input_type': 'password'}, trim_whitespace=False)
 
     def validate(self, attrs):
         email = attrs.get('email')
-        password = attrs.get('password')
+        password = attrs.get('senha')
 
         if email and password:
             user = authenticate(request=self.context.get('request'), username=email, password=password)
 
             if not user:
-                msg = 'Unable to log in with provided credentials.'
+                msg = 'E-mail ou senha, estão incorretos. Tente outra vez.'
                 raise serializers.ValidationError(msg, code='authorization')
 
         else:
-            msg = 'Must include "custom_username" and "password".'
+            msg = 'Você deve incluir e-mail e senha".'
             raise serializers.ValidationError(msg, code='authorization')
 
         attrs['user'] = user
@@ -40,9 +42,6 @@ class MudarSenhaSerializer(serializers.Serializer):
         user.set_password(self.validated_data['senha_nova'])
         user.save()
         return user
-
-
-Usuario = get_user_model()
 
 
 class ChangePasswordSerializer(serializers.Serializer):
