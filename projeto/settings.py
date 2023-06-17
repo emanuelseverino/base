@@ -13,6 +13,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'core',
     'usuario',
+    'perfil',
     'rest_framework',
     'rest_framework.authtoken',
     'django_rest_passwordreset',

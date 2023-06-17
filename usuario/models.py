@@ -41,6 +41,7 @@ class CustomUsuario(AbstractUser):
     email = models.EmailField('e-mail', unique=True)
     celular = models.CharField('celular', max_length=17, unique=True, blank=True, null=True)
     vencimento = models.DateTimeField()
+    visivel = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name', ]
@@ -51,5 +52,9 @@ class CustomUsuario(AbstractUser):
     def save(self, *args, **kwargs):
         self.vencimento = timezone.now()
         super().save(*args, **kwargs)
+
+
+    class Meta:
+        ordering = ['first_name', 'last_name']
 
     objects = UsuarioMaganer()

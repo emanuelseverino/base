@@ -28,6 +28,7 @@ urlpatterns = [
     path('mudar-senha/', ChangePasswordView.as_view(), ),
     path('resetar-senha/', include('django_rest_passwordreset.urls', namespace='resetar_senha')),
     path('usuario/', include('usuario.urls'), ),
+    path('perfil/', include('perfil.urls'), ),
     path('contas/', include("django.contrib.auth.urls")),
 ]
 
